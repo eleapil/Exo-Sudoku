@@ -17,10 +17,10 @@ for (let i = 0; i < grilleSudoku.length; i++) {     //naviguer dans la grille co
         input.type = 'text'
 
         // bordure rouge des cases externes de la grille
-        if (j % 3 === 0 && j !== 0)  input.style.borderLeft = '3px solid red';
-        if (j % 3 === 2 && j !== 8)  input.style.borderRight = '3px solid red';
-        if (i % 3 === 0 && i !== 0)  input.style.borderTop = '3px solid red';
-        if (i % 3 === 2 && i !== 8)  input.style.borderBottom = '3px solid red';
+        if (j % 3 === 0 && j !== 0)  input.style.borderLeft = '3px solid purple';
+        if (j % 3 === 2 && j !== 8)  input.style.borderRight = '3px solid purple';
+        if (i % 3 === 0 && i !== 0)  input.style.borderTop = '3px solid purple';
+        if (i % 3 === 2 && i !== 8)  input.style.borderBottom = '3px solid purple';
 
         // affichage des chiffres déjà donnés 
         const chiffresDonnes = grilleSudoku[i][j]
@@ -28,7 +28,7 @@ for (let i = 0; i < grilleSudoku.length; i++) {     //naviguer dans la grille co
             input.readOnly = true ;
             input.value = chiffresDonnes
             input.style.cssText += 'font-weight:bold;color:blue;'
-            input.style.backgroundColor = 'lightblue'
+            input.style.backgroundColor = 'mediumpurple'
         }
        
         // recup de la grille avec les reponses
