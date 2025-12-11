@@ -4,9 +4,10 @@ button {
     font-size: 16px;
     cursor: pointer;
     color: white;
-    background-color: red;
+    background-color: rgb(144, 25, 160);
     font-weight: bold;
     margin-top: 25px;
+
 }
 
 
