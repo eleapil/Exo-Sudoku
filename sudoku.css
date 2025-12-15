@@ -25,3 +25,15 @@ body {
     text-align: center;
     
 }
+
+/* code trouvé pour cacher les fleches de l'input de type number  
+https://forum.alsacreations.com/topic-5-77000-1-Inputsaisieint.html*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+
+input[type=number] {
+	appearance: textfield;
+}
