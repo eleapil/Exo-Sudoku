@@ -22,7 +22,7 @@ const grilleCorrection = [
   [9,6,1,5,3,7,2,8,4],
   [2,8,7,4,1,9,6,3,5],
   [3,4,5,2,8,6,1,7,9]
-];
+]; // grille pleine de correction
 
 let afficherGrille = document.getElementById("sudoku-grid");
 
@@ -37,11 +37,8 @@ afficherGrille.style.gap = '5px';
 for (let i = 0; i < grilleSudoku.length; i++) {     //naviguer dans la grille colonnes et lignes
 	for (let j = 0; j < grilleSudoku[i].length; j++) {
 		const input = document.createElement("input");
-
-        input.type = 'number';
-        input.min = 1;
-        input.max = 9;
         //permet de pouvoir ecrire un seul chiffre, et pas de lettres
+
         input.addEventListener('input', function() {
             let val = input.value;
             if (val.length > 1) val = val.slice(0,1);
@@ -58,7 +55,7 @@ for (let i = 0; i < grilleSudoku.length; i++) {     //naviguer dans la grille co
         if (i % 3 === 0 && i !== 0)  input.style.borderTop = '3px solid purple';
         if (i % 3 === 2 && i !== 8)  input.style.borderBottom = '3px solid purple';
 
-        // affichage des chiffres déjà donnés 
+        // affichage et style des chiffres déjà donnés 
         const chiffresDonnes = grilleSudoku[i][j];
         if (Number.isInteger(chiffresDonnes) && chiffresDonnes !== 0) {
             input.disabled = true ;
@@ -85,7 +82,6 @@ function recupererGrilleJoueur() {
     }
     return grillePleine;
 }
-
 // stringify pour pouvoir faire === SUR TOUTES LES LIGNES / COLONNES 
 function verifierLigne(grille, indexLigne) {
     const grilleExercice = grille || recupererGrilleJoueur();
@@ -151,7 +147,6 @@ function verifierRegions(grille) {
             );
         }
     }
-
     return resultats;
 }
 
@@ -168,9 +163,11 @@ buttonRecup.addEventListener('click', () => {
     const resultColonnes = verifierColonne(recuperation);
     console.log("Resultat des colonnes", resultColonnes)
     // affiche booleen resultat regions
-    const resultRegions = verifierRegions(recuperation)
-    console.log("Resultat des regions", resultRegions)
+    //function des regions pas utile dans le brief de l'exo donc je laisse en commentaire
+    /* const resultRegions = verifierRegions(recuperation)
+    console.log("Resultat des regions", resultRegions) */
 
+    //affichage des resultats
     const messageResult = document.querySelector("#message")
     if (!resultLignes.includes(false) && !resultColonnes.includes(false)){
         messageResult.textContent = "Le sudoku est correct"
